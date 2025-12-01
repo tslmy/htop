@@ -24,6 +24,15 @@ in the source distribution for its full text.
 # define PATH_MAX 4096
 #endif
 
+/* iOS 6.1 SDK does not have these constants */
+#ifndef AT_FDCWD
+# define AT_FDCWD -100
+#endif
+
+#ifndef AT_SYMLINK_NOFOLLOW
+# define AT_SYMLINK_NOFOLLOW 0x100
+#endif
+
 
 int Compat_faccessat(int dirfd,
                      const char* pathname,
