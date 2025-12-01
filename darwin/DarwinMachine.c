@@ -24,6 +24,11 @@ in the source distribution for its full text.
 #include "generic/openzfs_sysctl.h"
 #include "zfs/ZfsArcStats.h"
 
+// Compatibility for older SDKs.
+#ifndef kIOMainPortDefault
+#define kIOMainPortDefault kIOMasterPortDefault
+#endif
+
 
 static void DarwinMachine_getHostInfo(host_basic_info_data_t* p) {
    mach_msg_type_number_t info_size = HOST_BASIC_INFO_COUNT;
